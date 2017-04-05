@@ -1,0 +1,158 @@
+/* ---------- Variabes ---------- */
+$blue: #032B43;
+$gray: #4d4d4d;
+$tan: #CCC5B9;
+$main-color:$gray;
+
+/* ---------- Mixin's ---------- */
+@mixin clear {
+  &:after {
+    clear: both;
+    content: "";
+    display: grid;
+  }
+}
+
+@mixin transition {
+  transition: all 0.3s ease-in-out;
+}
+
+@mixin opacity {
+  filter:alpha(opacity=40);
+  opacity:0.4;
+  @include transition;
+}
+
+/* ---------- Styling ---------- */
+body {
+  background-color: white;
+  background-image: url(http://www.clipartbest.com/cliparts/jix/E97/jixE97b4T.svg);
+  background-size: cover;
+  font-size:18px;
+  height:100%;
+  margin-top: 30px;
+  text-align:center;
+}
+
+.container{
+  @include clear;
+  margin:0 auto;
+  width:100%;
+}
+
+canvas{
+  background: $tan;
+  border: $main-color solid 2px;
+  color: $main-color;
+  padding: 15px;
+}
+
+h1, h2, {
+  color: $main-color;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 100;
+  text-transform: uppercase;
+  margin: 5px auto;
+}
+
+h1 {
+	font-size: 75px;
+  text-shadow: 3px -3px $tan;
+}
+
+h2 {
+  color: $blue;
+  font-size: 45px;
+}
+
+p{
+  color: $main-color;
+  font-family: "Timmana", sans-serif;
+  font-size: 25px;
+}
+
+#categoryName {
+  color: $blue;
+  text-shadow: 2px 2px $tan;
+}
+
+#alphabet {
+  @include clear;
+  margin:15px auto;
+  max-width:900px;
+  padding:0;
+  text-align: center;
+}
+
+#alphabet li {
+  background: $main-color;
+  border: solid 1px $blue;
+  border-radius: 20px;
+  box-shadow: 2px 2px $tan;
+  color: white;
+  cursor:pointer;
+  float:left;
+  font-family: "Josefin Sans", sans-serif;
+  height:30px;
+  margin: 0 10px 10px 0;
+  padding-top:10px;
+  list-style: none;
+  width:35px;
+
+  &:hover{
+    background: $tan;
+    border: solid 1px $blue;
+    box-shadow: 2px 2px $main-color;
+    color: $blue;
+  }
+}
+
+#my-word li {
+  color: $main-color;
+  display: inline-block;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 35px;
+  font-weight: bolder;
+  padding: 0 10px;
+  position: relative;
+}
+
+.active {
+  @include opacity;
+
+  &:hover{
+    @include opacity;
+    @include transition;
+  }
+}
+
+#myAttempts{
+  color: $blue;
+  display:block;
+  font-size:35px;
+  margin: -5px auto;
+  text-align:center;
+}
+
+button{
+  background:$main-color;
+  border: solid 1px black;
+  border-radius: 8px;
+  box-shadow: 4px 4px $tan;
+  color: white;
+  font-family: "Josefin Sans", sans-serif;
+  font-size:20px;
+  font-weight: bolder;
+  margin: 8px;
+  padding:10px 8px;
+  text-decoration: none;
+  width: 150px;
+
+  &:hover{
+    @include transition;
+    background-color: $tan;
+    border: solid 1px $blue;
+    box-shadow: 4px 4px $main-color;
+    color: $blue;
+  }
+}
